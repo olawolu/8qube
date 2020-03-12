@@ -1,0 +1,1 @@
+web: gunicorn eightqube.wsgi --log-file -
