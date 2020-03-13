@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, \
+    RetrieveUpdateDestroyAPIView
 
 from .models import ContactForm
 from .serializers import ContactFormSerializer
@@ -13,3 +14,8 @@ class ContactFormView(ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save()
+
+
+class SingleMessageView(RetrieveUpdateDestroyAPIView):
+    queryset = ContactForm.objects.all()
+    serializer_class = ContactFormSerializer
