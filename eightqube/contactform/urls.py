@@ -6,5 +6,5 @@ app_name = "contactform"
 
 urlpatterns = [
     path('message', ContactFormView.as_view()),
-    path('message/<init:pk>', SingleMessageView.as_view()),
+    path('message/<int:pk>', SingleMessageView.as_view()),
 ]
