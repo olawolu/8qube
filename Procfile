@@ -1,1 +1,1 @@
-web: gunicorn eightqube.wsgi --log-file -
+web: gunicorn eightqube.eightqube.wsgi --log-file -

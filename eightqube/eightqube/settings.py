@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'n^@s0)rd(l$wdyv*glk0u3%m'
                                                  '!-te=h@1mod=+!7#n89xwy61as')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+# DEBUG = False
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['*']
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     # Local Apps
-    'contactform'
+    'eightqube.contactform'
 
 ]
 
@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'eightqube.urls'
+ROOT_URLCONF = 'eightqube.eightqube.urls'
 
 TEMPLATES = [
     {
@@ -138,5 +138,8 @@ STATIC_URL = '/static/'
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
+import django_heroku
+
+django_heroku.settings(locals())
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)

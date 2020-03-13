@@ -5,5 +5,5 @@ from .views import ContactFormView
 app_name = "contactform"
 
 urlpatterns = [
-    path('mails/', ContactFormView.as_view()),
+    path('message', ContactFormView.as_view()),
 ]
